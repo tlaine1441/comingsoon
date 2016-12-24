@@ -15,19 +15,29 @@ listUl.addEventListener('click', () => {
       let ul = li.parentNode;
       ul.removeChild(li);
     }
+    // Move List Item Up
     if (event.target.className == 'up-btn') {
       let li = event.target.parentNode;
+      // Checks of there is an previous siblings in the collection (hint. 0 based)
+      // Assigns if there is a previous sibling to prevLi if there is.
       let prevLi = li.previousElementSibling;
       let ul = li.parentNode;
+      // If prevLi contains a value
       if (prevLi){
+        // Inserts the target element before the target 
+        // by selecting the previous siblings index and insterting the target before that index value
         ul.insertBefore(li, prevLi);
       }
     }
     if (event.target.className == 'down-btn') {
       let li = event.target.parentNode;
+      // Checks of there is siblings after the currrent target in the collection
+      // Assigns if there is a sibling after the current target
       let nextLi = li.nextElementSibling;
       let ul = li.parentNode;
+      // If there is a sibling after current target
       if (nextLi){
+        // Inserts the next sibling before the target element
         ul.insertBefore(nextLi, li);
       }
     }
